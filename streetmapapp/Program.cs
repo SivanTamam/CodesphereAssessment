@@ -88,7 +88,7 @@ while (true)
     else
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"Shortest path from '{resolvedStart}' to '{resolvedEnd}' (hops: {path.Count - 1}):");
+        Console.WriteLine($"Shortest path (unweighted) from '{resolvedStart}' to '{resolvedEnd}' (hops: {path.Count - 1}):");
         Console.ResetColor();
         // Pretty print path
         Console.WriteLine(string.Join(" -> ", path));
