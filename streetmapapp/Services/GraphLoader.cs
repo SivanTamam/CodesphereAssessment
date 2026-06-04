@@ -61,7 +61,24 @@ public static class GraphLoader
                         }
                     }
 
-                    from.Roads.Add(new Road { Destination = dest, Distance = distance });
+                    // Direction handling (default: Bidirectional)
+                    var direction = "Bidirectional";
+                    if (roadEl.TryGetProperty("direction", out var dirEl) && dirEl.ValueKind == JsonValueKind.String)
+                    {
+                        direction = dirEl.GetString() ?? direction;
+                    }
+
+                    // Always add forward edge
+                    var forwardDirection = direction.Equals("Bidirectional", StringComparison.OrdinalIgnoreCase)
+                        ? RoadDirection.Bidirectional
+                        : RoadDirection.OneWay;
+                    from.Roads.Add(new Road { Destination = dest, Distance = distance, Direction = forwardDirection });
+
+                    // If bidirectional, add reverse edge as well
+                    if (direction.Equals("Bidirectional", StringComparison.OrdinalIgnoreCase))
+                    {
+                        dest.Roads.Add(new Road { Destination = from, Distance = distance, Direction = RoadDirection.Bidirectional });
+                    }
                 }
             }
         }

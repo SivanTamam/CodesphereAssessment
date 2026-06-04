@@ -24,6 +24,8 @@ public static class BfsPathFinder
 
             foreach (var road in map.Intersections[current].Roads)
             {
+                // Only traverse outgoing edges. Reverse traversal requires an explicit reverse road
+                // or a bidirectional edge already added by the loader.
                 var neighbor = road.Destination.Name;
                 if (!visited.Contains(neighbor))
                 {
