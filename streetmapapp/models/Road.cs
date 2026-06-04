@@ -1,3 +1,5 @@
+namespace StreetMapApp.Models;
+
 public class Road
 {
     public Intersection Destination { get; set; }

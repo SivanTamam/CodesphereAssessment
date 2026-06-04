@@ -1,0 +1,156 @@
+{
+  "intersections": {
+    "MainStreet": {
+      "name": "Main Street",
+      "roads": [
+        { "destination": "OakAvenue", "distance": 120 },
+        { "destination": "PineRoad", "distance": 200 },
+        { "destination": "MapleDrive", "distance": 150 }
+      ]
+    },
+    "OakAvenue": {
+      "name": "Oak Avenue",
+      "roads": [
+        { "destination": "MainStreet", "distance": 120 },
+        { "destination": "CedarLane", "distance": 90 },
+        { "destination": "ElmStreet", "distance": 180 }
+      ]
+    },
+    "PineRoad": {
+      "name": "Pine Road",
+      "roads": [
+        { "destination": "MainStreet", "distance": 200 },
+        { "destination": "BirchBoulevard", "distance": 130 },
+        { "destination": "SpruceWay", "distance": 170 }
+      ]
+    },
+    "MapleDrive": {
+      "name": "Maple Drive",
+      "roads": [
+        { "destination": "MainStreet", "distance": 150 },
+        { "destination": "WillowStreet", "distance": 110 },
+        { "destination": "AshCourt", "distance": 140 }
+      ]
+    },
+    "CedarLane": {
+      "name": "Cedar Lane",
+      "roads": [
+        { "destination": "OakAvenue", "distance": 90 },
+        { "destination": "RiverRoad", "distance": 220 },
+        { "destination": "ParkAvenue", "distance": 100 }
+      ]
+    },
+    "ElmStreet": {
+      "name": "Elm Street",
+      "roads": [
+        { "destination": "OakAvenue", "distance": 180 },
+        { "destination": "LakeViewRoad", "distance": 150 }
+      ]
+    },
+    "BirchBoulevard": {
+      "name": "Birch Boulevard",
+      "roads": [
+        { "destination": "PineRoad", "distance": 130 },
+        { "destination": "ValleyDrive", "distance": 160 },
+        { "destination": "ParkAvenue", "distance": 120 }
+      ]
+    },
+    "SpruceWay": {
+      "name": "Spruce Way",
+      "roads": [
+        { "destination": "PineRoad", "distance": 170 },
+        { "destination": "HillcrestRoad", "distance": 200 }
+      ]
+    },
+    "WillowStreet": {
+      "name": "Willow Street",
+      "roads": [
+        { "destination": "MapleDrive", "distance": 110 },
+        { "destination": "SunsetBoulevard", "distance": 140 }
+      ]
+    },
+    "AshCourt": {
+      "name": "Ash Court",
+      "roads": [
+        { "destination": "MapleDrive", "distance": 140 },
+        { "destination": "RiverRoad", "distance": 160 }
+      ]
+    },
+    "RiverRoad": {
+      "name": "River Road",
+      "roads": [
+        { "destination": "CedarLane", "distance": 220 },
+        { "destination": "AshCourt", "distance": 160 },
+        { "destination": "MarketStreet", "distance": 100 }
+      ]
+    },
+    "ParkAvenue": {
+      "name": "Park Avenue",
+      "roads": [
+        { "destination": "CedarLane", "distance": 100 },
+        { "destination": "BirchBoulevard", "distance": 120 },
+        { "destination": "StationRoad", "distance": 140 }
+      ]
+    },
+    "LakeViewRoad": {
+      "name": "Lake View Road",
+      "roads": [
+        { "destination": "ElmStreet", "distance": 150 },
+        { "destination": "ValleyDrive", "distance": 110 }
+      ]
+    },
+    "ValleyDrive": {
+      "name": "Valley Drive",
+      "roads": [
+        { "destination": "BirchBoulevard", "distance": 160 },
+        { "destination": "LakeViewRoad", "distance": 110 },
+        { "destination": "GardenLane", "distance": 130 }
+      ]
+    },
+    "HillcrestRoad": {
+      "name": "Hillcrest Road",
+      "roads": [
+        { "destination": "SpruceWay", "distance": 200 },
+        { "destination": "SunsetBoulevard", "distance": 90 }
+      ]
+    },
+    "SunsetBoulevard": {
+      "name": "Sunset Boulevard",
+      "roads": [
+        { "destination": "WillowStreet", "distance": 140 },
+        { "destination": "HillcrestRoad", "distance": 90 },
+        { "destination": "MarketStreet", "distance": 170 }
+      ]
+    },
+    "MarketStreet": {
+      "name": "Market Street",
+      "roads": [
+        { "destination": "RiverRoad", "distance": 100 },
+        { "destination": "SunsetBoulevard", "distance": 170 },
+        { "destination": "StationRoad", "distance": 80 }
+      ]
+    },
+    "StationRoad": {
+      "name": "Station Road",
+      "roads": [
+        { "destination": "ParkAvenue", "distance": 140 },
+        { "destination": "MarketStreet", "distance": 80 },
+        { "destination": "GardenLane", "distance": 95 }
+      ]
+    },
+    "GardenLane": {
+      "name": "Garden Lane",
+      "roads": [
+        { "destination": "ValleyDrive", "distance": 130 },
+        { "destination": "StationRoad", "distance": 95 },
+        { "destination": "HarborRoad", "distance": 210 }
+      ]
+    },
+    "HarborRoad": {
+      "name": "Harbor Road",
+      "roads": [
+        { "destination": "GardenLane", "distance": 210 }
+      ]
+    }
+  }
+}

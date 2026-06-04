@@ -1,3 +1,5 @@
+namespace StreetMapApp.Models;
+
 public class Intersection
 {
     public string Name { get; set; }
