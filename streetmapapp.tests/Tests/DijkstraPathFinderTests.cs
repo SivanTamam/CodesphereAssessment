@@ -95,6 +95,20 @@ public class DijkstraPathFinderTests
     }
 
     [Fact]
+    public void ShortestPath_Allows_Reverse_Traversal_For_Bidirectional_Road()
+    {
+        var map = new StreetMap();
+        map.Intersections["A"] = new Intersection { Name = "A" };
+        map.Intersections["B"] = new Intersection { Name = "B" };
+        map.Intersections["A"].Roads.Add(new Road { Destination = map.Intersections["B"], Distance = 3, Direction = RoadDirection.Bidirectional });
+
+        var (path, distance) = DijkstraPathFinder.ShortestPath(map, "B", "A");
+
+        Assert.Equal(new List<string> { "B", "A" }, path);
+        Assert.Equal(3, distance);
+    }
+
+    [Fact]
     public void ShortestPath_Tie_On_Distance_Returns_A_Valid_Min_Path()
     {
         var map = new StreetMap();

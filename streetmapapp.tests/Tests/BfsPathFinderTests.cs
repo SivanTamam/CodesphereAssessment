@@ -99,4 +99,27 @@ public class BfsPathFinderTests
         // Assert
         Assert.Empty(path);
     }
+
+    [Fact]
+    public void ShortestPath_Respects_OneWay_Roads_Direction()
+    {
+        var map = new StreetMap();
+        map.Intersections["A"] = new Intersection { Name = "A" };
+        map.Intersections["B"] = new Intersection { Name = "B" };
+        map.Intersections["A"].Roads.Add(new Road { Destination = map.Intersections["B"], Direction = RoadDirection.OneWay });
+
+        Assert.Equal(new[] { "A", "B" }, BfsPathFinder.ShortestPath(map, "A", "B"));
+        Assert.Empty(BfsPathFinder.ShortestPath(map, "B", "A"));
+    }
+
+    [Fact]
+    public void ShortestPath_Allows_Reverse_Traversal_For_Bidirectional_Road()
+    {
+        var map = new StreetMap();
+        map.Intersections["A"] = new Intersection { Name = "A" };
+        map.Intersections["B"] = new Intersection { Name = "B" };
+        map.Intersections["A"].Roads.Add(new Road { Destination = map.Intersections["B"], Direction = RoadDirection.Bidirectional });
+
+        Assert.Equal(new[] { "B", "A" }, BfsPathFinder.ShortestPath(map, "B", "A"));
+    }
 }

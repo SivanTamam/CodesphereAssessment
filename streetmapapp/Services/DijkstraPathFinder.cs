@@ -34,9 +34,9 @@ public static class DijkstraPathFinder
             if (d > dist[u]) continue; // stale entry
             if (string.Equals(u, end, StringComparison.OrdinalIgnoreCase)) break;
 
-            foreach (var road in map.Intersections[u].Roads)
+            foreach (var road in RoadTraversal.GetReachableRoads(map, u))
             {
-                var v = road.Destination.Name;
+                var v = road.Destination;
                 var nd = d + Math.Max(road.Distance, 0);
                 if (nd < dist[v])
                 {

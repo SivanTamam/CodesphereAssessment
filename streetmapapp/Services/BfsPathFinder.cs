@@ -6,6 +6,8 @@ public static class BfsPathFinder
 {
     public static List<string> ShortestPath(StreetMap map, string start, string end)
     {
+        _ = map.Intersections[start];
+
         var queue = new Queue<string>();
         var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var prev = new Dictionary<string, string?>(StringComparer.OrdinalIgnoreCase);
@@ -22,11 +24,9 @@ public static class BfsPathFinder
                 break;
             }
 
-            foreach (var road in map.Intersections[current].Roads)
+            foreach (var road in RoadTraversal.GetReachableRoads(map, current))
             {
-                // Only traverse outgoing edges. Reverse traversal requires an explicit reverse road
-                // or a bidirectional edge already added by the loader.
-                var neighbor = road.Destination.Name;
+                var neighbor = road.Destination;
                 if (!visited.Contains(neighbor))
                 {
                     visited.Add(neighbor);
