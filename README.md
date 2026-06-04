@@ -47,4 +47,12 @@ dotnet test streetmapapp.tests\StreetMapApp.Tests.csproj
 - JSON loader is robust to missing/invalid distance (defaults to 0).
 - Console UI adapts to terminal width; in test runners it defaults to 80 cols.
 
+# Design Decisions
+
+The solution models the street network as a graph because road networks are naturally represented as interconnected nodes and edges.
+
+Breadth First Search was selected for route traversal because it guarantees the shortest path in terms of number of intersections traversed.
+
+For the bonus requirement, Dijkstra's algorithm was implemented because road lengths introduce weighted edges and BFS can no longer guarantee the shortest travel distance.
+
 Summary: This README adds prerequisites, structure, usage, and how to run tests.
