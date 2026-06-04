@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 namespace StreetMapApp.Models;
 
 public enum RoadDirection
@@ -8,6 +9,7 @@ public enum RoadDirection
 
 public class Road
 {
+    [Required]
     public Intersection Destination { get; set; }
     public int Distance { get; set; } // Needed for bonus section
     public RoadDirection Direction { get; set; } = RoadDirection.Bidirectional;

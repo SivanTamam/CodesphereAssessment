@@ -2,10 +2,11 @@
  using StreetMapApp.Services;
  using StreetMapApp.UI;
  
- ConsoleUi.PrintBanner();
+ConsoleUi.PrintBanner();
 
 // Data file path (run from the project folder for this relative path to work)
 var dataPath = Path.Combine(Directory.GetCurrentDirectory(), "data", "map.json");
+
 if (!File.Exists(dataPath))
 {
     Console.WriteLine($"Data file not found at: {dataPath}");
@@ -25,11 +26,6 @@ catch (Exception ex)
     return;
 }
 
-ConsoleUi.PrintHelp();
-ConsoleUi.PrintNodes(streetMap);
-
-
-Console.WriteLine("Type 'exit' to quit. Type 'list' to reprint available nodes. Type 'help' for help.\n");
 while (true)
 {
     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -87,12 +83,30 @@ while (true)
     }
     else
     {
+        Console.WriteLine();
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"Shortest path (unweighted) from '{resolvedStart}' to '{resolvedEnd}' (hops: {path.Count - 1}):");
+        Console.WriteLine($"BFSShortest path (unweighted) from '{resolvedStart}' to '{resolvedEnd}' (hops: {path.Count - 1}):");
         Console.ResetColor();
         // Pretty print path
         Console.WriteLine(string.Join(" -> ", path));
         Console.WriteLine();
+
+        // Also show weighted shortest path using Dijkstra (respects road distances)
+        var (wPath, totalDistance) = DijkstraPathFinder.ShortestPath(streetMap, resolvedStart, resolvedEnd);
+        if (wPath.Count > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"Dijkstra's Shortest path (weighted) from '{resolvedStart}' to '{resolvedEnd}' (distance: {totalDistance}):");
+            Console.ResetColor();
+            Console.WriteLine(string.Join(" -> ", wPath));
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("No weighted path found (Dijkstra).\n");
+            Console.ResetColor();
+        }
     }
 }
 

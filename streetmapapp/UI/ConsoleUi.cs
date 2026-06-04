@@ -16,7 +16,7 @@ public static class ConsoleUi
     public static void PrintHelp()
     {
         Console.WriteLine("Instructions:");
-        Console.WriteLine("- Enter a start and end node to compute the shortest path (unweighted).");
+        Console.WriteLine("- Enter a start and end node to compute the shortest path (unweighted and weighted).");
         Console.WriteLine("- Commands: 'list' to view nodes, 'help' for this help, 'exit' to quit.\n");
     }
 
