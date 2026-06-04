@@ -43,7 +43,7 @@ Input is case-insensitive for node keys
 dotnet test streetmapapp.tests\StreetMapApp.Tests.csproj
 
 # Notes
-- Shortest path uses BFS and ignores distance (unweighted).
+- Shortest path uses BFS and ignores distance (unweighted)and separately uses Dijkstra for weighted calculations.
 - JSON loader is robust to missing/invalid distance (defaults to 0).
 - Console UI adapts to terminal width; in test runners it defaults to 80 cols.
 
