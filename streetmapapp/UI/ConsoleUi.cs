@@ -25,8 +25,17 @@ public static class ConsoleUi
         var keys = map.Intersections.Keys.OrderBy(k => k).ToList();
         Console.WriteLine("Available nodes:");
 
-        // Print in columns that adapt to console width
-        var width = Console.WindowWidth > 0 ? Console.WindowWidth : 80;
+        // Print in columns that adapt to console width (be robust in test runners)
+        int width;
+        try
+        {
+            width = Console.WindowWidth;
+            if (width <= 0) width = 80;
+        }
+        catch
+        {
+            width = 80;
+        }
         var colWidth = Math.Min(Math.Max(keys.Max(k => k.Length) + 3, 16), 32);
         var cols = Math.Max(1, width / colWidth);
 

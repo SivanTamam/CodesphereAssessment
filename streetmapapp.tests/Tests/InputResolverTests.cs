@@ -28,4 +28,29 @@ public class InputResolverTests
         // Assert
         Assert.Equal(expected, actual);
     }
+
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("   ")]
+    public void ResolveNode_NullOrWhitespace_Returns_Null(string? input)
+    {
+        var map = new StreetMap { Intersections = new Dictionary<string, Intersection>() };
+        var result = InputResolver.ResolveNode(map, input);
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void ResolveNode_Unknown_Returns_Null()
+    {
+        var map = new StreetMap
+        {
+            Intersections = new Dictionary<string, Intersection>
+            {
+                ["A"] = new Intersection { Name = "A" }
+            }
+        };
+        var result = InputResolver.ResolveNode(map, "ZZZ");
+        Assert.Null(result);
+    }
 }

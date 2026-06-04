@@ -48,8 +48,18 @@ public static class GraphLoader
                         map.Intersections[destName] = dest;
                     }
 
-                    var distance = roadEl.TryGetProperty("distance", out var distEl) && distEl.TryGetInt32(out var d)
-                        ? d : 0;
+                    int distance = 0;
+                    if (roadEl.TryGetProperty("distance", out var distEl) && distEl.ValueKind == JsonValueKind.Number)
+                    {
+                        try
+                        {
+                            distance = distEl.GetInt32();
+                        }
+                        catch
+                        {
+                            distance = 0;
+                        }
+                    }
 
                     from.Roads.Add(new Road { Destination = dest, Distance = distance });
                 }
