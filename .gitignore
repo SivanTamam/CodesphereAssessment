@@ -1,0 +1,78 @@
+# ---- OS ----
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.apdisk
+
+# ---- IDEs & Tools ----
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider / IntelliJ
+.idea/
+*.iml
+
+# ---- .NET build output ----
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+TestResults/
+*.VisualState.xml
+*.refresh
+*.nupkg
+*.snupkg
+project.lock.json
+artifacts/
+
+# ASP.NET logs (if any)
+logs/
+*.log
+
+# NuGet
+.nuget/packages/
+packages/
+# Exclude build/restore artifacts, allow sources
+!**/packages/build/
+!**/packages/repositories.config
+
+# Azure
+.publishsettings
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# T4 code generation
+*.generated.*
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Others
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+~$*
+
+# Ignore gitkeep placeholders if present
+**/.gitkeep
