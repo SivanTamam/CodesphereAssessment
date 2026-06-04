@@ -35,6 +35,7 @@ place a JSON file at streetmapapp/data/map.json with this shape:
 }
 
 # Run the app
+restore nuget and rebuild packages if using Visual Studio 
 dotnet run
 Commands: help, list, exit
 Input is case-insensitive for node keys
