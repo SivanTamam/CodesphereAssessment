@@ -5,7 +5,7 @@
 ConsoleUi.PrintBanner();
 
 // Data file path (run from the project folder for this relative path to work)
-var dataPath = Path.Combine(Directory.GetCurrentDirectory(), "data", "map.json");
+var dataPath = Path.Combine(AppContext.BaseDirectory, "data", "map.json");
 
 if (!File.Exists(dataPath))
 {

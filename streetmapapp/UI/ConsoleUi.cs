@@ -8,7 +8,7 @@ public static class ConsoleUi
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("============================================");
-        Console.WriteLine("  StreetMapApp — Shortest Path (BFS)");
+        Console.WriteLine("  StreetMapApp — Shortest Path (BFS & Dijkstra)");
         Console.WriteLine("============================================\n");
         Console.ResetColor();
     }
